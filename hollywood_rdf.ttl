@@ -102,7 +102,7 @@ hw:awardName rdf:type rdf:Property ;
                   dbpedia:birthDate "1952-05-14"^^xsd:date ;
 				  hw:directed <Forrest_Gump> .
 				  
-<Alejandro_González_Iñárritu> rdf:type <Film_Director> ;
+<Alejandro_Gonzalez_Inarritu> rdf:type <Film_Director> ;
                               dbpedia:birthDate "1963-08-15"^^xsd:date ;
 				              hw:directed <The_Revenant_(2015_film)> .
 
@@ -154,7 +154,7 @@ hw:awardName rdf:type rdf:Property ;
 			  
 <The_Revenant_(2015_film)> rdf:type <Film> ;
                            date:released "2016-01-15"^^xsd:date ;
-						   hw:directedBy <Alejandro_González_Iñárritu> ;
+						   hw:directedBy <Alejandro_Gonzalez_Inarritu> ;
 						   hw:starred <Leonardo_DiCaprio> .
 						   
 						   
