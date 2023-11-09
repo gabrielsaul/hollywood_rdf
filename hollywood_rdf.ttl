@@ -1,0 +1,200 @@
+# MODULE:      COMP6442 Semantic Technologies & Graph Analytics
+# STUDENT:     Gabriel Doyle-Finch (gsgd2)
+# ASSIGNMENT:  1
+# FILE:        hollywood_rdf.ttl
+# DOMAIN:      Hollywood (Actors, Directors & Films)
+# DESCRIPTION: A sample RDF graph representing a segment of Hollywood,
+#              containing entities such as actors, directors, films
+#              and awards. This includes additional information, such 
+#              as birth dates, release dates and awards won for Best
+#              Actor/Actress, Best Supporting Actor/Actress, and Best
+#              Director for the Academy Awards & the Golden Globes.
+
+
+# Namespace
+
+# Base / Prefixes:
+BASE            <https://en.wikipedia.org/wiki/>
+PREFIX xsd:     <http://www.w3.org/2001/XMLSchema#>
+PREFIX rdf:     <http://www.w3.org/1999/02/22-rdf-syntax-ns#>
+PREFIX rdfs:    <http://www.w3.org/2000/01/rdf-schema#>
+PREFIX hw:      <http://www.hollywood.com/>
+PREFIX date:    <https://timeanddate.com/>
+PREFIX dbpedia: <https://dbpedia.org/ontology/>
+
+# RDF Schema
+
+# Classes (/w Axioms/Domain Knowledge):
+<Person> rdf:type rdfs:Class .
+<Actor> rdf:type rdfs:Class ;
+        rdfs:subClassOf <Person> .
+<Film_Director> rdf:type rdfs:Class ;
+                rdfs:subClassOf <Person> .
+<Film> rdf:type rdfs:Class .
+<Award> rdf:type rdfs:Class .
+<Academy_Award> rdf:type rdfs:Class ;
+                rdfs:subClassOf <Award> .
+<Golden_Globe> rdf:type rdfs:Class ;
+                rdfs:subClassOf <Award> .
+		   
+# Properties (/w Axioms/Domain Knowledge):
+hw:workedOn rdf:type rdf:Property ;
+            rdfs:domain <Person> ;
+			rdfs:range <Film> .
+hw:actedIn rdf:type rdf:Property ;
+           rdfs:subPropertyOf hw:workedOn .
+hw:directed rdf:type rdf:Property ;
+           rdfs:subPropertyOf hw:workedOn .
+hw:involved rdf:type rdf:Property ;
+            rdfs:domain <Film> ;
+			rdfs:range <Person> .
+hw:starred rdf:type rdf:Property ;
+            rdfs:subPropertyOf hw:involved .
+hw:directedBy rdf:type rdf:Property ;
+              rdfs:subPropertyOf hw:involved .
+hw:won rdf:type rdf:Property ;
+       rdfs:domain <Person> ;
+	   rdfs:range <Award> .
+hw:awardedTo rdf:type rdf:Property ;
+       rdfs:domain <Award> ;
+	   rdfs:range <Person> .
+hw:awardedFor rdf:type rdf:Property ;
+	   rdfs:domain <Award> ;
+	   rdfs:range <Film> .
+dbpedia:birthDate rdf:type rdf:Property ;
+                  rdfs:domain <Person> ;
+		          rdfs:range xsd:date .
+hw:title rdf:type rdf:Property ;
+         rdfs:domain <Film> ;
+	     rdfs:range xsd:string .
+date:released rdf:type rdf:Property ;
+              rdfs:domain <Film> ;
+			  rdfs:range xsd:date .
+hw:awardName rdf:type rdf:Property ;
+             rdfs:domain <Award> ;
+			 rdfs:range xsd:string .
+			   
+
+# RDF Graph
+
+# Directors:
+<Martin_Scorsese> rdf:type <Film_Director> ;
+                  dbpedia:birthDate "1942-11-17"^^xsd:date ;
+				  hw:directed <The_Departed> , <Taxi_Driver> .
+				  
+<David_Fincher> rdf:type <Film_Director> ;
+                dbpedia:birthDate "1962-08-28"^^xsd:date ;
+				hw:directed <Seven_(1995_film)> .
+
+<Quentin_Tarantino> rdf:type <Film_Director> ;
+                    dbpedia:birthDate "1963-03-27"^^xsd:date ;
+				    hw:directed <Once_Upon_a_Time_in_Hollywood> .
+				  
+<Clint_Eastwood> rdf:type <Film_Director> ;
+                 dbpedia:birthDate "1930-05-31"^^xsd:date ;
+				 hw:directed <Million_Dollar_Baby> , <Unforgiven> .
+				  
+<Jonathan_Demme> rdf:type <Film_Director> ;
+                 dbpedia:birthDate "1944-02-22"^^xsd:date ;
+				 hw:directed <The_Silence_of_the_Lambs_(film)> , <Philadelphia_(film)> .
+				  
+<Robert_Zemeckis> rdf:type <Film_Director> ;
+                  dbpedia:birthDate "1952-05-14"^^xsd:date ;
+				  hw:directed <Forrest_Gump> .
+				  
+<Alejandro_González_Iñárritu> rdf:type <Film_Director> ;
+                              dbpedia:birthDate "1963-08-15"^^xsd:date ;
+				              hw:directed <The_Revenant_(2015_film)> .
+
+# Films:
+<The_Departed> rdf:type <Film> ;
+               date:released "2006-09-26"^^xsd:date ;
+			   hw:directedBy <Martin_Scorsese> ;
+			   hw:starred <Leonardo_DiCaprio> , <Vera_Farmiga> .
+
+<Taxi_Driver> rdf:type <Film> ;
+              date:released "1976-08-19"^^xsd:date ;
+			  hw:directedBy <Martin_Scorsese> ;
+			  hw:starred <Jodie_Foster> .
+				  
+<Seven_(1995_film)> rdf:type <Film> ;
+                    date:released "1996-01-05"^^xsd:date ;
+					hw:directedBy <David_Fincher> ;
+					hw:starred <Brad_Pitt> , <Morgan_Freeman> .
+
+<Once_Upon_a_Time_in_Hollywood> rdf:type <Film> ;
+                                date:released "2019-08-14"^^xsd:date ;
+								hw:directedBy <Quentin_Tarantino> ;
+								hw:starred <Leonardo_DiCaprio> , <Brad_Pitt> .
+				  
+<Million_Dollar_Baby> rdf:type <Film> ;
+                      date:released "2005-01-14"^^xsd:date ;
+					  hw:directedBy <Clint_Eastwood> ;
+					  hw:starred <Morgan_Freeman> , <Hilary_Swank> .
+					  
+<Unforgiven> rdf:type <Film> ;
+             date:released "1992-09-18"^^xsd:date ;
+			 hw:directedBy <Clint_Eastwood> ;
+			 hw:starred <Morgan_Freeman> , <Gene_Hackman> .
+				  
+<The_Silence_of_the_Lambs_(film)> rdf:type <Film> ;
+                                  date:released "1991-05-31"^^xsd:date ;
+								  hw:directedBy <Jonathan_Demme> ;
+								  hw:starred <Jodie_Foster> , <Anthony_Hopkins> .
+
+<Philadelphia_(film)> rdf:type <Film> ;
+                      date:released "1994-02-25"^^xsd:date ;
+					  hw:directedBy <Jonathan_Demme> ;
+					  hw:starred <Tom_Hanks> .
+				  
+<Forrest_Gump> rdf:type <Film> ;
+               date:released "1994-10-07"^^xsd:date ;
+			   hw:directedBy <Robert_Zemeckis> ;
+			   hw:starred <Tom_Hanks> , <Mykelti_Williamson> .
+			  
+<The_Revenant_(2015_film)> rdf:type <Film> ;
+                           date:released "2016-01-15"^^xsd:date ;
+						   hw:directedBy <Alejandro_González_Iñárritu> ;
+						   hw:starred <Leonardo_DiCaprio> .
+						   
+						   
+# Actors:
+<Leonardo_DiCaprio> rdf:type <Actor> ;
+                    dbpedia:birthDate "1974-11-11"^^xsd:date ;
+					hw:actedIn <The_Departed> , <Once_Upon_a_Time_in_Hollywood> , <The_Revenant_(2015_film)> .
+
+<Vera_Farmiga> rdf:type <Actor> ;
+               dbpedia:birthDate "1973-08-06"^^xsd:date ;
+			   hw:actedIn <The_Departed> . 
+
+<Jodie_Foster> rdf:type <Actor> ;
+               dbpedia:birthDate "1962-11-19"^^xsd:date ;
+			   hw:actedIn <Taxi_Driver> , <The_Silence_of_the_Lambs_(film)> .
+				  
+<Brad_Pitt> rdf:type <Actor> ;
+            dbpedia:birthDate "1963-12-18"^^xsd:date ;
+			hw:actedIn <Seven_(1995_film)> , <Once_Upon_a_Time_in_Hollywood> .
+
+<Morgan_Freeman> rdf:type <Actor> ;
+                 dbpedia:birthDate "1937-06-01"^^xsd:date ;
+				 hw:actedIn <Seven_(1995_film)> , <Million_Dollar_Baby> , <Unforgiven> .
+
+<Hilary_Swank> rdf:type <Actor> ;
+               dbpedia:birthDate "1974-07-30"^^xsd:date ;
+			   hw:actedIn <Million_Dollar_Baby> .
+
+<Gene_Hackman> rdf:type <Actor> ;
+               dbpedia:birthDate "1930-01-30"^^xsd:date ;
+			   hw:actedIn <Unforgiven> .
+				  
+<Anthony_Hopkins> rdf:type <Actor> ;
+                  dbpedia:birthDate "1937-12-31"^^xsd:date ;
+				  hw:actedIn <The_Silence_of_the_Lambs_(film)> .
+				  
+<Tom_Hanks> rdf:type <Actor> ;
+            dbpedia:birthDate "1956-07-09"^^xsd:date ;
+			hw:actedIn <Philadelphia_(film)> , <Forrest_Gump> .
+
+<Mykelti_Williamson> rdf:type <Actor> ;
+                     dbpedia:birthDate "1957-03-04"^^xsd:date ;
+					 hw:actedIn <Forrest_Gump> . 

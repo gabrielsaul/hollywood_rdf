@@ -1,0 +1,65 @@
+# Directors (/w Films):
+# Martin Scorcese             --> The Departed (AA - BD), Taxi Driver (GG - BD)
+# David Fincher               --> Seven
+# Quentin Tarantino           --> Once Upon A Time... in Hollywood
+# Clint Eastwood              --> Million Dollar Baby (AA - BD) (GG - BD), Unforgiven (AA - BD) (GG - BD)
+# Jonathan Demme              --> The Silence of the Lambs (AA - BD), Philadelphia
+# Robert Zemeckis             --> Forrest Gump (AA - BD) (GG - BD)
+# Alejandro González Iñárritu --> The Revenant (AA - BD) (GG - BD)
+
+# Director Awards:
+# AA Best Director - MC - The Departed
+# GG Best Director - MC - Taxi Driver
+# AA Best Director - CE - Million Dollar Baby
+# GG Best Director - CE - Million Dollar Baby
+# AA Best Director - CE - Unforgiven
+# GG Best Director - CE - Unforgiven
+# AA Best Director - JD - The Silence of the Lambs
+# AA Best Director - RZ - Forrest Gump
+# GG Best Director - RZ - Forrest Gump
+# AA Best Director - AI - The Revenant
+# GG Best Director - AI - The Revenant
+
+
+# Films (w/ Starring):
+# The Departed --> Leonardo Di Caprio, Vera Farmiga
+# Taxi Driver --> Jodie Foster
+# Seven --> Brad Pitt, Morgan Freeman
+# Once Upon A Time... in Hollywood --> Brad Pitt (AA - BSA) (GG - BSA), Leonardo Di Caprio
+# Million Dollar Baby --> Hilary Swank (AA - BA) (GG - BA), Morgan Freeman (AA - BSA)
+# Unforgiven --> Gene Hackman (AA - BA) (GG - BA), Morgan Freeman
+# The Silence of the Lambs --> Anthony Hopkins (AA - BA), Jodie Foster (AA - BA) (GG - BA)
+# Philadelphia --> Tom Hanks (AA - BA) (GG - BA)
+# Forrest Gump --> Tom Hanks (AA - BA) (GG - BA), Mykelti Williamson
+# The Revenant --> Leonardo Di Caprio (AA - BA) (GG - BA)
+
+
+# Actors:
+# Leonardo Di Caprio 
+# Vera Farmiga
+# Jodie Foster
+# Brad Pitt
+# Morgan Freeman
+# Hilary Swank
+# Gene Hackman
+# Anthony Hopkins
+# Tom Hanks
+# Mykelti Williamson
+
+# Actor/Actress Awards:
+# AA Best Supporting Actor - BP - Once Upon A Time... in Hollywood
+# GG Best Supporting Actor - BP - Once Upon A Time... in Hollywood
+# AA Best Actress - HS - Million Dollar Baby
+# GG Best Actress - HS - Million Dollar Baby
+# AA Best Supporting Actor - MF - Million Dollar Baby
+# AA Best Actor - GH - Unforgiven
+# GG Best Actor - GH - Unforgiven
+# AA Best Actor - AH - The Silence of the Lambs
+# AA Best Actress - JF - The Silence of the Lambs
+# GG Best Actress - JF - The Silence of the Lambs
+# AA Best Actor - TH - Philadelphia
+# GG Best Actor - TH - Philadelphia
+# AA Best Actor - TH - Forrest Gump
+# GG Best Actor - TH - Forrest Gump
+# AA Best Actor - LD - The Revenant
+# GG Best Actor - LD - The Revenant
