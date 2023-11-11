@@ -178,7 +178,7 @@ hw:awardName rdf:type rdf:Property ;
 
 <Jodie_Foster> rdf:type <Actor> ;
                dbpedia:birthDate "1962-11-19"^^xsd:date ;
-			   hw:actedIn <Taxi_Driver> , <The_Silence_of_the_Lambs_(film)> 
+			   hw:actedIn <Taxi_Driver> , <The_Silence_of_the_Lambs_(film)> ;
 			   hw:won _:jfaa1 , _:jfgg1 .
 				  
 <Brad_Pitt> rdf:type <Actor> ;
