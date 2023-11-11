@@ -9,15 +9,15 @@
 
 # Director Awards:
 # AA Best Director - MC - The Departed
-# GG Best Director - MC - Taxi Driver
 # AA Best Director - CE - Million Dollar Baby
-# GG Best Director - CE - Million Dollar Baby
 # AA Best Director - CE - Unforgiven
-# GG Best Director - CE - Unforgiven
 # AA Best Director - JD - The Silence of the Lambs
 # AA Best Director - RZ - Forrest Gump
-# GG Best Director - RZ - Forrest Gump
 # AA Best Director - AI - The Revenant
+# GG Best Director - MC - Taxi Driver
+# GG Best Director - CE - Million Dollar Baby
+# GG Best Director - CE - Unforgiven
+# GG Best Director - RZ - Forrest Gump
 # GG Best Director - AI - The Revenant
 
 
@@ -47,19 +47,19 @@
 # Mykelti Williamson
 
 # Actor/Actress Awards:
-# AA Best Supporting Actor - BP - Once Upon A Time... in Hollywood
-# GG Best Supporting Actor - BP - Once Upon A Time... in Hollywood
-# AA Best Actress - HS - Million Dollar Baby
-# GG Best Actress - HS - Million Dollar Baby
-# AA Best Supporting Actor - MF - Million Dollar Baby
 # AA Best Actor - GH - Unforgiven
-# GG Best Actor - GH - Unforgiven
 # AA Best Actor - AH - The Silence of the Lambs
-# AA Best Actress - JF - The Silence of the Lambs
-# GG Best Actress - JF - The Silence of the Lambs
 # AA Best Actor - TH - Philadelphia
-# GG Best Actor - TH - Philadelphia
 # AA Best Actor - TH - Forrest Gump
-# GG Best Actor - TH - Forrest Gump
 # AA Best Actor - LD - The Revenant
+# AA Best Actress - HS - Million Dollar Baby
+# AA Best Actress - JF - The Silence of the Lambs
+# AA Best Supporting Actor - BP - Once Upon A Time... in Hollywood
+# AA Best Supporting Actor - MF - Million Dollar Baby
+# GG Best Actor - GH - Unforgiven
+# GG Best Actor - TH - Philadelphia
+# GG Best Actor - TH - Forrest Gump
 # GG Best Actor - LD - The Revenant
+# GG Best Actress - HS - Million Dollar Baby
+# GG Best Actress - JF - The Silence of the Lambs
+# GG Best Supporting Actor - BP - Once Upon A Time... in Hollywood
