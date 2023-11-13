@@ -1,3 +1,4 @@
+# Namespace:
 BASE            <https://en.wikipedia.org/wiki/>
 PREFIX xsd:     <http://www.w3.org/2001/XMLSchema#>
 PREFIX rdf:     <http://www.w3.org/1999/02/22-rdf-syntax-ns#>
@@ -6,12 +7,23 @@ PREFIX hw:      <http://www.hollywood.com/>
 PREFIX date:    <https://timeanddate.com/>
 PREFIX dbpedia: <https://dbpedia.org/ontology/>
 
-SELECT ?person ?awardType ?awardName
+# q1.rq
+# For each actor, count the number of films they have acted in and the number
+# of awards (of any type) they have won and return a solution set showing the 
+# the number of films for each actor & the number of awards they have won -
+# even if the actor has won no awards. Order first by the number of awards won,
+# and then by the number of films they haved acted in.
+
+SELECT ?actor (COUNT(DISTINCT ?film) AS ?numFilms) (COUNT(DISTINCT ?award) AS ?awardsWon)
 WHERE {
-    ?person rdf:type ?class .
-    ?class rdfs:subClassOf <Person> .
-    OPTIONAL { ?person hw:won ?award .
-               ?award rdf:type ?awardType ;
-                      hw:awardName ?awardName . }
+    { ?actor rdf:type <Actor> .
+	  ?actor hw:actedIn ?film .
+      ?actor hw:won ?award }
+    UNION
+    { ?actor rdf:type <Actor> .
+	  ?actor hw:actedIn ?film .
+      OPTIONAL { ?actor hw:won ?award . }
+      FILTER (! BOUND(?award)) }
 }
-ORDER BY ASC(?person)
+GROUP BY ?actor
+ORDER BY DESC(?awardsWon) DESC(?numFilms)

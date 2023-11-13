@@ -1,0 +1,28 @@
+# Namespace:
+BASE            <https://en.wikipedia.org/wiki/>
+PREFIX xsd:     <http://www.w3.org/2001/XMLSchema#>
+PREFIX rdf:     <http://www.w3.org/1999/02/22-rdf-syntax-ns#>
+PREFIX rdfs:    <http://www.w3.org/2000/01/rdf-schema#>
+PREFIX hw:      <http://www.hollywood.com/>
+PREFIX date:    <https://timeanddate.com/>
+PREFIX dbpedia: <https://dbpedia.org/ontology/>
+
+# q3.rq
+# Find the top 5 films with the youngest average age (at the date of the film's release),
+# rounded to the closest integer, of anyone (directors/actors) that has worked on the film. 
+
+SELECT ?film (ROUND(AVG(?ageAtRelease)) as ?avgAgeOfWorkers)
+WHERE {
+   ?workedOn rdfs:subPropertyOf hw:workedOn .
+
+   ?film rdf:type <Film> .
+   ?film date:released ?releaseDate .
+   ?person ?workedOn ?film .
+   ?person dbpedia:birthDate ?birthDate .
+
+   BIND(YEAR(?releaseDate) - YEAR(?birthDate) - if(MONTH(?releaseDate) < MONTH(?birthDate) || 
+        (MONTH(?releaseDate) >= MONTH(?birthDate) && DAY(?releaseDate) <= DAY(?birthDate)),1,0) AS ?ageAtRelease) .
+}
+GROUP BY ?film
+ORDER BY ASC(?avgAgeOfWorkers)
+LIMIT 5

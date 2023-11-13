@@ -8,16 +8,22 @@ PREFIX date:    <https://timeanddate.com/>
 PREFIX dbpedia: <https://dbpedia.org/ontology/>
 
 # q2.rq
-# For each director, count the number of actors (excluding themselves) in their films
-# and count how many awards these actors have won across all of their own movies. Order
-# by the latter value.
+# For each director that has directed actors to win Academy Awards (Oscars), 
+# count the number of Academy Award-winning actors (excluding themselves) in their 
+# films and count how many Academy Awards these actors have won for the movies 
+# directed by the relevant directors. Order by the latter value (number of Academy 
+# Awards won).
 
-SELECT ?director (COUNT(DISTINCT ?actor) AS ?numActorsDirected) (COUNT(DISTINCT ?award) AS ?numAwardsWon)
+SELECT ?director (COUNT(?actor) AS ?oscarWinningActors) (COUNT(?award) AS ?numOscarsWon)
 WHERE {
-    ?director hw:directed/hw:casted ?actor .
-    ?director hw:directed/hw:casted/hw:won ?award .
+    ?director hw:directed ?film .
+    ?film hw:casted ?actor .
+    ?actor hw:won ?award .
+    ?award rdf:type <Academy_Award> .
+
     FILTER (?director != ?actor)
+    FILTER EXISTS { ?award hw:awardedFor ?film }
     FILTER NOT EXISTS { ?award hw:awardedTo ?director }
 }
 GROUP BY ?director
-ORDER BY DESC(?numAwardsWon)
+ORDER BY DESC(?numOscarsWon)
