@@ -274,6 +274,12 @@ _:thaa1 rdf:type <Academy_Award> ;
 		hw:awardedTo <Tom_Hanks> ;
 		hw:awardedFor <Philadelphia_(film)> ;
 		hw:awardedOn "1994-03-21"^^xsd:date .
+
+_:thaa2 rdf:type <Academy_Award> ;
+        hw:awardName "Best Actor" ;
+		hw:awardedTo <Tom_Hanks> ;
+		hw:awardedFor <Forrest_Gump> ;
+		hw:awardedOn "1995-03-27"^^xsd:date .
 		
 _:ldaa1 rdf:type <Academy_Award> ;
         hw:awardName "Best Actor" ;

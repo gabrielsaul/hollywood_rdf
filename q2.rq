@@ -1,0 +1,23 @@
+# Namespace:
+BASE            <https://en.wikipedia.org/wiki/>
+PREFIX xsd:     <http://www.w3.org/2001/XMLSchema#>
+PREFIX rdf:     <http://www.w3.org/1999/02/22-rdf-syntax-ns#>
+PREFIX rdfs:    <http://www.w3.org/2000/01/rdf-schema#>
+PREFIX hw:      <http://www.hollywood.com/>
+PREFIX date:    <https://timeanddate.com/>
+PREFIX dbpedia: <https://dbpedia.org/ontology/>
+
+# q2.rq
+# For each director, count the number of actors (excluding themselves) in their films
+# and count how many awards these actors have won across all of their own movies. Order
+# by the latter value.
+
+SELECT ?director (COUNT(DISTINCT ?actor) AS ?numActorsDirected) (COUNT(DISTINCT ?award) AS ?numAwardsWon)
+WHERE {
+    ?director hw:directed/hw:casted ?actor .
+    ?director hw:directed/hw:casted/hw:won ?award .
+    FILTER (?director != ?actor)
+    FILTER NOT EXISTS { ?award hw:awardedTo ?director }
+}
+GROUP BY ?director
+ORDER BY DESC(?numAwardsWon)

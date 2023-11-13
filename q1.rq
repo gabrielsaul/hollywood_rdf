@@ -1,0 +1,17 @@
+BASE            <https://en.wikipedia.org/wiki/>
+PREFIX xsd:     <http://www.w3.org/2001/XMLSchema#>
+PREFIX rdf:     <http://www.w3.org/1999/02/22-rdf-syntax-ns#>
+PREFIX rdfs:    <http://www.w3.org/2000/01/rdf-schema#>
+PREFIX hw:      <http://www.hollywood.com/>
+PREFIX date:    <https://timeanddate.com/>
+PREFIX dbpedia: <https://dbpedia.org/ontology/>
+
+SELECT ?person ?awardType ?awardName
+WHERE {
+    ?person rdf:type ?class .
+    ?class rdfs:subClassOf <Person> .
+    OPTIONAL { ?person hw:won ?award .
+               ?award rdf:type ?awardType ;
+                      hw:awardName ?awardName . }
+}
+ORDER BY ASC(?person)
