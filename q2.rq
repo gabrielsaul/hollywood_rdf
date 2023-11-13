@@ -1,4 +1,10 @@
-# Namespace:
+# q2.rq
+# For each director that has directed actors to win Academy Awards (Oscars), 
+# count the number of Academy Award-winning actors (excluding themselves) in their 
+# films and count how many Academy Awards these actors have won for the movies 
+# directed by the relevant directors. Order by the latter value (number of Academy 
+# Awards won).
+
 BASE            <https://en.wikipedia.org/wiki/>
 PREFIX xsd:     <http://www.w3.org/2001/XMLSchema#>
 PREFIX rdf:     <http://www.w3.org/1999/02/22-rdf-syntax-ns#>
@@ -6,13 +12,6 @@ PREFIX rdfs:    <http://www.w3.org/2000/01/rdf-schema#>
 PREFIX hw:      <http://www.hollywood.com/>
 PREFIX date:    <https://timeanddate.com/>
 PREFIX dbpedia: <https://dbpedia.org/ontology/>
-
-# q2.rq
-# For each director that has directed actors to win Academy Awards (Oscars), 
-# count the number of Academy Award-winning actors (excluding themselves) in their 
-# films and count how many Academy Awards these actors have won for the movies 
-# directed by the relevant directors. Order by the latter value (number of Academy 
-# Awards won).
 
 SELECT ?director (COUNT(?actor) AS ?oscarWinningActors) (COUNT(?award) AS ?numOscarsWon)
 WHERE {

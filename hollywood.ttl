@@ -42,16 +42,24 @@ hw:workedOn rdf:type rdf:Property ;
             rdfs:domain <Person> ;
 			rdfs:range <Film> .
 hw:actedIn rdf:type rdf:Property ;
-           rdfs:subPropertyOf hw:workedOn .
+           rdfs:subPropertyOf hw:workedOn ;
+		   rdfs:domain <Person> ;
+		   rdfs:range <Film> .
 hw:directed rdf:type rdf:Property ;
-           rdfs:subPropertyOf hw:workedOn .
+           rdfs:subPropertyOf hw:workedOn ;
+		   rdfs:domain <Film_Director> ;
+		   rdfs:range <Film> .
 hw:involved rdf:type rdf:Property ;
             rdfs:domain <Film> ;
 			rdfs:range <Person> .
 hw:casted rdf:type rdf:Property ;
-          rdfs:subPropertyOf hw:involved .
+          rdfs:subPropertyOf hw:involved ;
+		  rdfs:domain <Film> ;
+		  rdfs:range <Person> .
 hw:directedBy rdf:type rdf:Property ;
-              rdfs:subPropertyOf hw:involved .
+              rdfs:subPropertyOf hw:involved ;
+			  rdfs:domain <Film> ;
+			  rdfs:range <Film_Director> .
 hw:won rdf:type rdf:Property ;
        rdfs:domain <Person> ;
 	   rdfs:range <Award> .

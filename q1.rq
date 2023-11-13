@@ -1,4 +1,10 @@
-# Namespace:
+# q1.rq
+# For each actor, count the number of films they have acted in and the number
+# of awards (of any type) they have won and return a solution set showing the 
+# the number of films for each actor & the number of awards they have won -
+# even if the actor has won no awards. Order first by the number of awards won,
+# and then by the number of films they haved acted in.
+
 BASE            <https://en.wikipedia.org/wiki/>
 PREFIX xsd:     <http://www.w3.org/2001/XMLSchema#>
 PREFIX rdf:     <http://www.w3.org/1999/02/22-rdf-syntax-ns#>
@@ -6,13 +12,6 @@ PREFIX rdfs:    <http://www.w3.org/2000/01/rdf-schema#>
 PREFIX hw:      <http://www.hollywood.com/>
 PREFIX date:    <https://timeanddate.com/>
 PREFIX dbpedia: <https://dbpedia.org/ontology/>
-
-# q1.rq
-# For each actor, count the number of films they have acted in and the number
-# of awards (of any type) they have won and return a solution set showing the 
-# the number of films for each actor & the number of awards they have won -
-# even if the actor has won no awards. Order first by the number of awards won,
-# and then by the number of films they haved acted in.
 
 SELECT ?actor (COUNT(DISTINCT ?film) AS ?numFilms) (COUNT(DISTINCT ?award) AS ?awardsWon)
 WHERE {
